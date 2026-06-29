@@ -33,3 +33,9 @@ helm repo update
 helm install otel-collector open-telemetry/opentelemetry-collector -n observability --create-namespace -f values.yaml
 
 ```
+step 5 :
+**add prometheus receiver and prometheusremotewrite exporter to mimic the promethus setup done earlier**
+
+```
+helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f values-prometheus.yaml
+```
