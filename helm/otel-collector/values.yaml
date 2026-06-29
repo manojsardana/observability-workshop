@@ -40,3 +40,8 @@ config:
         receivers: [otlp]
         processors: [memory_limiter, batch]
         exporters: [debug]
+extraEnvs:
+  - name: K8S_NODE_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: spec.nodeName
