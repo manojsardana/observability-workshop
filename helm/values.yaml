@@ -1,1 +1,9 @@
-
+components:
+  kafka:
+    enabled: false
+  accounting:
+    enabled: false
+  fraud-detection:
+    enabled: false
+opentelemetry-collector:
+  enabled: false
