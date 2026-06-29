@@ -24,3 +24,12 @@ Step 3 :
 ```
 helm upgrade prometheus prometheus-community/prometheus -n monitoring -f helm/prometheus/values.yaml
 ```
+step 4 :
+**Install basic otel collector as daemonset** 
+
+```
+helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
+helm repo update
+helm install otel-collector open-telemetry/opentelemetry-collector -n observability --create-namespace -f values.yaml
+
+```
