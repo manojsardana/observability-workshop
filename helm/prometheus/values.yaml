@@ -1,3 +1,6 @@
+server:
+  extraFlags:
+    - web.enable-remote-write-receiver
 serverFiles:
   prometheus.yml:
     scrape_configs:
