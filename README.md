@@ -18,3 +18,9 @@ helm repo update
 
 helm install prometheus prometheus-community/prometheus --namespace monitoring --create-namespace
 ```
+Step 3 : 
+**Monitor otel-demo application using prometheus**
+
+```
+helm upgrade prometheus prometheus-community/prometheus -n monitoring -f helm/prometheus/values.yaml
+```
