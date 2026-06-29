@@ -31,6 +31,10 @@ config:
                 action: keep
                 regex: "true"
 
+              - source_labels: [__meta_kubernetes_pod_node_name]
+                action: keep
+                regex: ${env:K8S_NODE_NAME}
+
               - source_labels:
                   [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
                 action: replace
@@ -82,4 +86,8 @@ config:
           - batch
         exporters:
           - debug
-          - 
+extraEnvs:
+  - name: K8S_NODE_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: spec.nodeName
