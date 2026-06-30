@@ -58,14 +58,7 @@ topk(5, kube_pod_container_status_restarts_total)
 
 ```
 
-
-Step 3 : 
-**Monitor otel-demo application using prometheus**
-
-```
-helm upgrade prometheus prometheus-community/prometheus -n monitoring -f helm/prometheus/values.yaml
-```
-step 4 :
+step 3 :
 **Install basic otel collector as daemonset** 
 
 ```
@@ -74,13 +67,13 @@ helm repo update
 helm install otel-collector open-telemetry/opentelemetry-collector -n observability --create-namespace -f helm/otel-collector/values.yaml
 
 ```
-step 5 :
+step 4 :
 **add prometheus receiver and prometheusremotewrite exporter to mimic the promethus setup done earlier**
 
 ```
 helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-prometheus.yaml
 ```
-step 6 : 
+step 5 : 
 **remove prometheus scrapping to avoid duplication**
 
 ```
