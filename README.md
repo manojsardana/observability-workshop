@@ -46,6 +46,16 @@ helm install prometheus prometheus-community/prometheus --namespace monitoring -
 ```
 kubectl --namespace monitoring port-forward svc/prometheus-server 8081:80
 
+up
+
+count by(job)(up)
+
+count by(namespace)(kube_pod_info)
+
+sum by(pod)(rate(container_cpu_usage_seconds_total{container!=""}[5m]))
+
+topk(5, kube_pod_container_status_restarts_total)
+
 ```
 
 
