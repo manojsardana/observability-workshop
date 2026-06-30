@@ -1,7 +1,7 @@
 server:
   extraFlags:
     - web.enable-remote-write-receiver
-    - - web.enable-lifecycle
+    - web.enable-lifecycle
 serverFiles:
   prometheus.yml:
     scrape_configs:
