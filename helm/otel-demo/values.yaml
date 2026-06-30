@@ -7,3 +7,5 @@ components:
     enabled: false
 opentelemetry-collector:
   enabled: false
+grafana:
+  enabled: false
