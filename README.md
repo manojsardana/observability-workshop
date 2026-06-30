@@ -41,6 +41,14 @@ helm repo update
 
 helm install prometheus prometheus-community/prometheus --namespace monitoring --create-namespace
 ```
+**Verify Prometheus UI and the jobs running by default**
+
+```
+kubectl --namespace monitoring port-forward svc/prometheus-server 8081:9090
+
+```
+
+
 Step 3 : 
 **Monitor otel-demo application using prometheus**
 
