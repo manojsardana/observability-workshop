@@ -44,7 +44,7 @@ helm install prometheus prometheus-community/prometheus --namespace monitoring -
 **Verify Prometheus UI and the jobs running by default**
 
 ```
-kubectl --namespace monitoring port-forward svc/prometheus-server 8081:9090
+kubectl --namespace monitoring port-forward svc/prometheus-server 8081:80
 
 ```
 
