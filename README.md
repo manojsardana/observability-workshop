@@ -6,8 +6,31 @@ helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm
 
 helm repo update
 
-helm install otel-demo open-telemetry/opentelemetry-demo --namespace otel-demo --create-namespace --f helm/values.yaml
+helm install otel-demo open-telemetry/opentelemetry-demo --namespace otel-demo --create-namespace -f helm/otel-demo/values.yaml
+
  ```
+**Verify, test and basic live monitoring** 
+
+```
+kubectl get pods -n otel-demo -w
+
+kubectl --namespace otel-demo port-forward svc/frontend-proxy 8080:8080
+
+kubectl top pod -n otel-demo
+
+kubectl top node
+
+kubectl logs deployment/frontend -n otel-demo
+
+kubectl logs deployment/frontend -n otel-demo -f
+
+kubectl get events -n otel-demo --sort-by=.lastTimestamp
+
+kubectl --namespace otel-demo port-forward svc/frontend-proxy 8080:8080
+
+```
+
+
 Step 2 : 
 **Install Prometheus Server**
 
