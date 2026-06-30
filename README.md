@@ -1,8 +1,8 @@
 **Session 1 : Traditional Monitoring/Evolution of Monitoring** - 10 Mins
 
-**Session 2 : K8s Trandtional Monitoring with Prometheus / Prometheus Overview** - 20 mins
+**Session 2 : K8s traditional Monitoring with Prometheus / Prometheus Overview** - 20 mins
 
-**Lab 1 : Create playgroud & Install OpenTelemetry Demo Application** - 20 mins
+**Lab 1 : Create playground & Install OpenTelemetry Demo Application** - 20 mins
 
 
 ```
