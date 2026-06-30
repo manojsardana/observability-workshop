@@ -1,5 +1,8 @@
-Step 1 :
-**Install OpenTelemetry Demo Application**
+**Session 1 : Traditional Monitoring/Evolution of Monitoring** - 10 Mins
+
+**Session 2 : K8s Trandtional Monitoring with Prometheus / Prometheus Overview** - 20 mins
+
+**Lab 1 : Install OpenTelemetry Demo Application** - 15 mins
 
 ```
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
@@ -29,10 +32,7 @@ kubectl get events -n otel-demo --sort-by=.lastTimestamp
 kubectl --namespace otel-demo port-forward svc/frontend-proxy 8080:8080
 
 ```
-
-
-Step 2 : 
-**Install Prometheus Server**
+**Lab 2 : Install Prometheus Server** - 15 mins
 
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -58,8 +58,11 @@ topk(5, kube_pod_container_status_restarts_total)
 
 ```
 
-step 3 :
-**Install basic otel collector as daemonset** 
+**Session 3 : Observability & OpenTelemetry** -  20 mins
+**Session 4 : OpenTelemetry Pipelines  - Design Metric Pipleine** - 10 mins
+
+
+**Lab 3 : Install basic otel collector as daemonset**  - 10 mins
 
 ```
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
@@ -67,15 +70,22 @@ helm repo update
 helm install otel-collector open-telemetry/opentelemetry-collector -n observability --create-namespace -f helm/otel-collector/values.yaml
 
 ```
-step 4 :
-**add prometheus receiver and prometheusremotewrite exporter to mimic the promethus setup done earlier**
+**lab 4 part 1 : add prometheus receiver and prometheusremotewrite exporter to mimic the promethus setup done earlier** - 15 mins
 
 ```
 helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-prometheus.yaml
 ```
-step 5 : 
-**remove prometheus scrapping to avoid duplication**
+ : 
+**lab 4 Part 2: remove prometheus scrapping to avoid duplication** - 10 mins
 
 ```
 helm upgrade prometheus prometheus-community/prometheus -n monitoring -f helm/prometheus/values-no-job.yaml
 ```
+
+**Session 5: OpenTelemetry Instrumentation for traces - Design Trace pipeline** - 15 mins
+
+**Lab 5: Auto Instrument an application for traces** - 15 mins
+
+**Session 6: OpenTelemetry Log Srapping - Design Log pipeline** - 10 mins
+
+**Lab 6: Add filelog receiver and otlp exporter for log shipping** - 10 mins
