@@ -8,10 +8,11 @@ presets: {}
 config:
   receivers:
     otlp:
-      grpc:
-        endpoint: ${env:MY_POD_IP}:4317
-      http:
-        endpoint: ${env:MY_POD_IP}:4318
+      protocols:
+        grpc:
+          endpoint: ${env:MY_POD_IP}:4317
+        http:
+          endpoint: ${env:MY_POD_IP}:4318
 
   processors:
     memory_limiter:
