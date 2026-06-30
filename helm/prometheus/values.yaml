@@ -4,11 +4,6 @@ server:
 serverFiles:
   prometheus.yml:
     scrape_configs:
-      - job_name: prometheus
-        static_configs:
-          - targets:
-            - localhost:9090
-
       - job_name: otel-demo
         kubernetes_sd_configs:
         - role: pod
@@ -21,7 +16,7 @@ serverFiles:
         - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
           action: keep
           regex: true
-
+          
         - source_labels: [__address__,__meta_kubernetes_pod_annotation_prometheus_io_port]
           action: replace
           regex: ([^:]+)(?::\d+)?;(\d+)
