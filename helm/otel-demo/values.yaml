@@ -9,3 +9,5 @@ opentelemetry-collector:
   enabled: false
 grafana:
   enabled: false
+prometheus:
+  enabled: false
