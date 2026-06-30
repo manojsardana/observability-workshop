@@ -2,9 +2,11 @@
 
 **Session 2 : K8s Trandtional Monitoring with Prometheus / Prometheus Overview** - 20 mins
 
-**Lab 1 : Install OpenTelemetry Demo Application** - 15 mins
+**Lab 1 : Create playgroud & Install OpenTelemetry Demo Application** - 20 mins
+
 
 ```
+
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
 
 helm repo update
@@ -59,6 +61,7 @@ topk(5, kube_pod_container_status_restarts_total)
 ```
 
 **Session 3 : Observability & OpenTelemetry** -  20 mins
+
 **Session 4 : OpenTelemetry Pipelines  - Design Metric Pipleine** - 10 mins
 
 
