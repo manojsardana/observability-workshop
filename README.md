@@ -102,7 +102,7 @@ kubectl -n otel-demo port-forward svc/frontend-proxy 8080:8080
 
 http://localhost:8080/jaeger/ui/
 
-// update any of the service to point to collector deployed, update environment variable OTEL_COLLECTOR_NAME  to  otel-collector-opentelemetry-collector.observability.svc.cluster.local
+// update any of the service to point to collector deployed, update environment variable OTEL_COLLECTOR_NAME  to  otel-collector-opentelemetry-collector.observability.svc.cluster.local for frontend, frontend-proxy and any other microservices
 
 // update the collector to send the data to jaeger endpoint
 helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-jaeger.yaml
