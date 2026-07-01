@@ -90,6 +90,12 @@ config:
       endpoint: jaeger.otel-demo.svc.cluster.local:4317
       tls:
         insecure: true
+    opensearch:
+      http:
+        endpoint: http://opensearch.otel-demo.svc.cluster.local:9200
+      logs_index: otel-demo-logs
+      mapping:
+        mode: otel
 
   service:
     pipelines:
@@ -123,6 +129,7 @@ config:
           - batch
         exporters:
           - debug
+          - opensearch
 extraEnvs:
   - name: K8S_NODE_NAME
     valueFrom:
