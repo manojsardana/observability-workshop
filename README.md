@@ -97,6 +97,15 @@ kubectl edit configmap -n monitoring prometheus-server
 
 **Lab 5: Auto Instrument an application for traces** - 15 mins
 
+```
+kubectl -n otel-demo port-forward svc/frontend-proxy 8080:8080
+
+http://localhost:8080/jaeger/ui/
+
+
+
+```
+
 **Session 6: OpenTelemetry Log Srapping - Design Log pipeline** - 10 mins
 
 **Lab 6: Add filelog receiver and otlp exporter for log shipping** - 10 mins
