@@ -119,3 +119,9 @@ helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observabil
 **Session 6: OpenTelemetry Log Srapping - Design Log pipeline** - 10 mins
 
 **Lab 6: Add filelog receiver and otlp exporter for log shipping** - 10 mins
+
+```
+helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-filelog.yaml
+
+```
+
