@@ -109,7 +109,7 @@ kubectl edit configmap -n monitoring prometheus-server
 **Lab 5: Auto Instrument an application for traces** - 15 mins
 
 ```
-kubectl -n otel-demo port-forward svc/frontend-proxy 8080:8080
+kubectl -n otel-demo port-forward svc/frontend-proxy 8080:8080 --address 0.0.0.0
 
 http://localhost:8080/jaeger/ui/
 
@@ -138,7 +138,7 @@ helm install dashboards opensearch/opensearch-dashboards -n otel-demo --set open
 
 kubectl set env deployment/dashboards-opensearch-dashboards -n otel-demo DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
 
-kubectl port-forward svc/dashboards-opensearch-dashboards -n otel-demo 5601:5601
+kubectl port-forward svc/dashboards-opensearch-dashboards -n otel-demo 5601:5601 --address 0.0.0.0
 
 http://localhost:5601
 
