@@ -123,5 +123,13 @@ helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observabil
 ```
 helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-filelog.yaml
 
+helm install dashboards opensearch/opensearch-dashboards -n otel-demo --set opensearchHosts=http://opensearch:9200
+
+kubectl set env deployment/dashboards-opensearch-dashboards -n otel-demo DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
+
+kubectl port-forward svc/dashboards-opensearch-dashboards -n otel-demo 5601:5601
+
+http://localhost:5601
+
 ```
 
