@@ -13,6 +13,12 @@ helm repo update
 
 helm install otel-demo open-telemetry/opentelemetry-demo --namespace otel-demo --create-namespace -f helm/otel-demo/values.yaml
 
+helm upgrade --install metrics-server metrics-server/metrics-server -n kube-system
+
+kubectl edit deployment metrics-server -n kube-system
+
+// add to the args --kubelet-insecure-tls
+
  ```
 **Verify, test and basic live monitoring** 
 
