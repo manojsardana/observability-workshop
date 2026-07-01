@@ -4,10 +4,3 @@ server:
   extraFlags:
     - web.enable-remote-write-receiver
     - web.enable-lifecycle
-serverFiles:
-  prometheus.yml:
-    scrape_configs:
-      - job_name: prometheus
-        static_configs:
-          - targets:
-            - localhost:9090
