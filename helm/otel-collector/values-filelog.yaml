@@ -94,8 +94,6 @@ config:
       http:
         endpoint: http://opensearch.otel-demo.svc.cluster.local:9200
       logs_index: otel-demo-logs
-      mapping:
-        mode: otel
 
   service:
     pipelines:
