@@ -134,6 +134,8 @@ helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observabil
 ```
 helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-filelog.yaml
 
+helm repo add opensearch https://opensearch-project.github.io/helm-charts/
+
 helm install dashboards opensearch/opensearch-dashboards -n otel-demo --set opensearchHosts=http://opensearch:9200
 
 kubectl set env deployment/dashboards-opensearch-dashboards -n otel-demo DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
