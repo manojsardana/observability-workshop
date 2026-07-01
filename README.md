@@ -63,6 +63,8 @@ sum by(pod)(rate(container_cpu_usage_seconds_total{container!=""}[5m]))
 
 topk(5, kube_pod_container_status_restarts_total)
 
+up{job="kubernetes-nodes-cadvisor"}
+
 ```
 
 **Session 3 : Observability & OpenTelemetry** -  20 mins
