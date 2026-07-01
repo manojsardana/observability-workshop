@@ -37,7 +37,6 @@ kubectl logs deployment/frontend -n otel-demo -f
 
 kubectl get events -n otel-demo --sort-by=.lastTimestamp
 
-kubectl --namespace otel-demo port-forward svc/frontend-proxy 8080:8080
 
 ```
 **Lab 2 : Install Prometheus Server** - 15 mins
@@ -47,12 +46,12 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 
 helm repo update
 
-helm install prometheus prometheus-community/prometheus --namespace monitoring --create-namespace
+helm install prometheus prometheus-community/prometheus --namespace monitoring --create-namespace --set server.persistentVolume.enabled=false
 ```
 **Verify Prometheus UI and the jobs running by default**
 
 ```
-kubectl --namespace monitoring port-forward svc/prometheus-server 8081:80
+kubectl --namespace monitoring port-forward svc/prometheus-server 8081:80 --address 0.0.0.0
 
 up
 
