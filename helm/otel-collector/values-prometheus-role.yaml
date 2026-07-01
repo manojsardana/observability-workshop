@@ -3,6 +3,13 @@ mode: daemonset
 image:
   repository: otel/opentelemetry-collector-contrib
 
+service:
+  # Enable the creation of a Service.
+  # By default, it's enabled on mode != daemonset.
+  # However, to enable it on mode = daemonset, its creation must be explicitly enabled
+  enabled: true
+  type: ClusterIP
+
 presets: {}
 
 config:
