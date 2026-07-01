@@ -87,7 +87,10 @@ helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observabil
 **lab 4 Part 2: remove prometheus scrapping to avoid duplication** - 10 mins
 
 ```
-helm upgrade prometheus prometheus-community/prometheus -n monitoring -f helm/prometheus/values-no-job.yaml
+kubectl edit configmap -n monitoring prometheus-server
+
+// remove the job kubernetes-nodes-cadvisor from the config map, save and restart the prometheus server deployment
+
 ```
 
 **Session 5: OpenTelemetry Instrumentation for traces - Design Trace pipeline** - 15 mins
