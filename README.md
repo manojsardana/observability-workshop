@@ -104,6 +104,13 @@ http://localhost:8080/jaeger/ui/
 
 // update any of the service to point to collector deployed, update environment variable OTEL_COLLECTOR_NAME  to  otel-collector-opentelemetry-collector.observability.svc.cluster.local for frontend, frontend-proxy and any other microservices
 
+kubectl set env deployment/frontend -n otel-demo OTEL_COLLECTOR_NAME=otel-collector-opentelemetry-collector.observability.svc.cluster.local
+
+kubectl set env deployment/frontend-proxy -n otel-demo OTEL_COLLECTOR_NAME=otel-collector-opentelemetry-collector.observability.svc.cluster.local
+
+kubectl set env deployment/ad -n otel-demo OTEL_COLLECTOR_NAME=otel-collector-opentelemetry-collector.observability.svc.cluster.local
+
+
 // update the collector to send the data to jaeger endpoint
 helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-jaeger.yaml
 
