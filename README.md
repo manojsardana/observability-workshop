@@ -13,6 +13,10 @@ helm repo update
 
 helm install otel-demo open-telemetry/opentelemetry-demo --namespace otel-demo --create-namespace -f helm/otel-demo/values.yaml
 
+helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+
+helm repo update
+
 helm upgrade --install metrics-server metrics-server/metrics-server -n kube-system
 
 kubectl edit deployment metrics-server -n kube-system
