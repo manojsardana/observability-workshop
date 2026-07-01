@@ -77,6 +77,11 @@ helm install otel-collector open-telemetry/opentelemetry-collector -n observabil
 
 ```
 helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-prometheus.yaml
+
+// to fix the role issue, show the role being used by prometheus and use the same in otel-collector helm charts
+
+helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-prometheus-role.yaml
+
 ```
  : 
 **lab 4 Part 2: remove prometheus scrapping to avoid duplication** - 10 mins
