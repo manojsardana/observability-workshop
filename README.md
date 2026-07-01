@@ -19,7 +19,7 @@ helm install otel-demo open-telemetry/opentelemetry-demo --namespace otel-demo -
 ```
 kubectl get pods -n otel-demo -w
 
-kubectl --namespace otel-demo port-forward svc/frontend-proxy 8080:8080
+kubectl --namespace otel-demo port-forward svc/frontend-proxy 8080:8080 --address 0.0.0.0
 
 kubectl top pod -n otel-demo
 
