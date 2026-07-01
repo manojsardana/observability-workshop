@@ -50,7 +50,7 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 
 helm repo update
 
-helm install prometheus prometheus-community/prometheus --namespace monitoring --create-namespace --set server.persistentVolume.enabled=false
+helm install prometheus prometheus-community/prometheus --namespace monitoring --create-namespace -f helm/prometheus/values-no-job.yaml
 ```
 **Verify Prometheus UI and the jobs running by default**
 
