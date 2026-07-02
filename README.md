@@ -145,4 +145,13 @@ kubectl port-forward svc/dashboards-opensearch-dashboards -n otel-demo 5601:5601
 http://localhost:5601
 
 ```
+**Session 7: Processsors Basics (Optional)**
 
+**Lab 7: Add K8sattribute porocessor to enrich signal ((Optional))**
+
+```
+helm upgrade otel-collector open-telemetry/opentelemetry-collector -n observability -f helm/otel-collector/values-k8sattribute.yaml
+
+```
+
+**Session 8: Workshop Summary**
