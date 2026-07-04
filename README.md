@@ -43,6 +43,8 @@ kubectl logs deployment/frontend -n otel-demo -f
 
 kubectl get events -n otel-demo --sort-by=.lastTimestamp
 
+watch -n 2 "kubectl get pods -n otel-demo -o jsonpath='{range .items[*]}{.metadata.name}{\"\t\"}{.spec.containers[*].resources.limits.cpu}{\"\t\"}{.spec.containers[*].resources.limits.memory}{\"\n\"}{end}' > /tmp/limits.txt && kubectl top pods -n otel-demo --no-headers | awk 'NR==FNR{cpu[\$1]=\$2; mem[\$1]=\$3; next} \$1 in cpu{print \$1, \"CPU:\", (\$2/int(cpu[\$1]))*100\"%\", \"MEM:\", (\$3/int(mem[\$1]))*100\"%\"}' /tmp/limits.txt -"
+
 
 ```
 **Lab 2 : Install Prometheus Server** - 15 mins
